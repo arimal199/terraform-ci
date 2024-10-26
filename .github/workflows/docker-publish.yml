@@ -5,19 +5,13 @@ name: Docker
 # separate terms of service, privacy policy, and support
 # documentation.
 
-on:
-  workflow_dispatch:
-    inputs:
-      tag:
-          description: 'Tag of the docker image'
-          required: true
-          type: string
+on: workflow_dispatch
   
 env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
-  IMAGE_NAME: ${{ github.repository }}:${{ github.event.inputs.tag }}
+  IMAGE_NAME: ${{ github.repository }}
 
 
 jobs:
